@@ -1,5 +1,5 @@
 {
-    "name": "fsateler/yii2-rut",
+    "name": "sateler/yii2-rut",
     "description": "Add chilean RUT formatting and validation",
     "license": "BSD 3-Clause",
     "authors": [
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "fsateler\\rut\\": ""
+            "sateler\\rut\\": ""
         }
     }
 }

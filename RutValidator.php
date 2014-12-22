@@ -1,6 +1,6 @@
 <?php
 
-namespace fsateler\rut;
+namespace sateler\rut;
 
 use \Yii;
 use yii\validators\Validator;

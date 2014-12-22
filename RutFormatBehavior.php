@@ -1,6 +1,6 @@
 <?php
 
-namespace fsateler\rut;
+namespace sateler\rut;
 
 /**
  * Behavior that adds a rut formatter
