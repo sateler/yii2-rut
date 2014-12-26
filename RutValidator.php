@@ -29,6 +29,16 @@ class RutValidator extends Validator
 		$value = strtolower($value);
 		return $value;
 	}
+
+	function init() {
+		parent::init();
+		if(!isset(Yii::$app->i18n->translations['yii2-rut'])) {
+			Yii::$app->i18n->translations['yii2-rut'] = [
+				'class' => 'yii\i18n\PhpMessageSource',
+				'basePath' => dirname(__FILE__) . '/messages',
+			];
+		}
+	}
 	
 	/**
 	 * @inheritdoc
