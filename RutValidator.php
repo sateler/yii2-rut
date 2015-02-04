@@ -13,6 +13,12 @@ use yii\validators\Validator;
 
 class RutValidator extends Validator
 {
+    /** Whether to allow zero (ie, 0-0)
+     *
+     * @var boolean 
+     */
+    public $allowZero = true;
+    
 	/** Removes any rut extra characters
 	 * 
 	 * @param string $value
@@ -45,7 +51,7 @@ class RutValidator extends Validator
 	 */
 	public function validateAttribute($object, $attribute)
 	{
-		$ok = self::isValid($object->$attribute);
+		$ok = $this->isValid($object->$attribute);
 		
 		if(!$ok) {
 			$message= $this->message !== null ? $this->message : Yii::t('yii2-rut', '{attribute} is not a valid rut', [
@@ -58,7 +64,7 @@ class RutValidator extends Validator
 		$object->$attribute = self::trimValue($object->$attribute);
 	}
 
-	public static function isValid($value)
+	public function isValid($value)
 	{
 		$value = self::trimValue($value);
 
@@ -80,6 +86,9 @@ class RutValidator extends Validator
 			$multiply = 2;
 		    }
 		}
+        if (!$this->allowZero && +$store === 0) {
+            return false;
+        }
 		$result = 11 - ($store % 11);
 		if ($result == 10) {
 		    $result = 'k';
