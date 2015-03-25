@@ -13,6 +13,9 @@ class RutFormatBehavior extends \yii\base\Behavior {
 	public $digitSeparator = '.';
 
 	public function asRut($val) {
+		if (!$val) {
+			return $this->owner->nullDisplay;
+		}
 		if (strpos($val, '-') !== false ) {
 			$splittedRut = explode('-', $val);
 			$number = $splittedRut[0];
