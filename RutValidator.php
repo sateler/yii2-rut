@@ -45,6 +45,10 @@ class RutValidator extends Validator
 			];
 		}
 	}
+    
+    public function clientValidateAttribute($model, $attribute, $view) {
+        return 'if ($.validateRut && !$.validateRut(value)) {messages.push("Rut Inválido");}';
+    }
 	
 	/**
 	 * @inheritdoc
