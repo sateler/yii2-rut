@@ -25,15 +25,9 @@ class RutValidator extends Validator
 	 * @return string
 	 */
 	public static function trimValue($value) {
-		// Remove spaces
-		$value = preg_replace('/\s+/', '', ''.$value);
-		// Remove dots
-		$value = preg_replace('/\.+/', '', ''.$value);
-		// Remove -
-		$value = preg_replace('/-+/', '', ''.$value);
-		// Lowercase
-		$value = strtolower($value);
-		return $value;
+		// Trim all non-number or k
+		$trimmed = preg_replace('/[^0-9kK]/i', '', $value);
+		return $trimmed;
 	}
 
 	function init() {
