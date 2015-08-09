@@ -13,6 +13,9 @@ use yii\validators\Validator;
 
 class RutValidator extends Validator
 {
+    /** @inheritdoc */
+    public $message = 'RUT inválido';
+
     /** Whether to allow zero (ie, 0-0)
      *
      * @var boolean 
