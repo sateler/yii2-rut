@@ -22,7 +22,7 @@ class RutValidator extends Validator
      */
     public $allowZero = true;
     
-	/** Removes any rut extra characters
+	/** Removes any rut extra characters, and lowercases the result
 	 * 
 	 * @param string $value
 	 * @return string
@@ -30,7 +30,7 @@ class RutValidator extends Validator
 	public static function trimValue($value) {
 		// Trim all non-number or k
 		$trimmed = preg_replace('/[^0-9kK]/i', '', $value);
-		return $trimmed;
+		return strtolower($trimmed);
 	}
 
 	function init() {
