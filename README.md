@@ -1,4 +1,4 @@
-# RUT Formatting
+# Rut Formatting
 
 Load the behavior in the `config/web.php`:
 
@@ -21,4 +21,17 @@ Then you can use `Yii::$app->formatter->asRut()`, or specify the `rut` format in
 
 In your model rules, add:
 
-    ['property', \sateler\rut\RutFormatBehavior::className()]
+    ['property', \sateler\rut\RutValidator::className()]
+    
+# Rut Widget
+
+To format input data in textInputs, in your app assets, add:
+
+    public $depends = [
+        ...,
+        'sateler\rut\RutValidatorAsset',
+    ];
+
+And activate the text input using:
+
+    $form->field($model, "rut")->textInput(['data-rut' => 'true'])
