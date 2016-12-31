@@ -29,7 +29,7 @@ To format input data in textInputs, in your app assets, add:
 
     public $depends = [
         ...,
-        'sateler\rut\RutValidatorAsset',
+        'sateler\rut\RutWidgetAsset',
     ];
 
 And activate the text input using:
