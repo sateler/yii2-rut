@@ -73,7 +73,7 @@ class RutValidator extends Validator
 
 		if (!$value) {
 			// may be empty
-			return;
+			return true;
 		}
 		$ok = false;
 		$rev = strrev($value);
