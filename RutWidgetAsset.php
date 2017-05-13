@@ -11,7 +11,7 @@ class RutWidgetAsset extends AssetBundle
     public $sourcePath = __DIR__;
     
     public $js = [
-		'rut-widget.js',
+        'rut-widget.js',
     ];
     public $depends = [
         'sateler\rut\RutValidatorAsset',

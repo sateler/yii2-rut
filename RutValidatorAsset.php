@@ -11,7 +11,7 @@ class RutValidatorAsset extends AssetBundle
     public $sourcePath = __DIR__;
     
     public $js = [
-		'jquery.rut.js',
+        'jquery.rut.js',
     ];
     public $depends = [
         'yii\web\JqueryAsset',
