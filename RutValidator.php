@@ -46,7 +46,7 @@ class RutValidator extends Validator
     public function clientValidateAttribute($model, $attribute, $view) {
         RutValidatorAsset::register($view);
         $msg = json_encode($this->message, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-        return "if (!jQuery.validateRut(value)) {messages.push($msg);}";
+        return "if (typeof(value) === 'string' && value.length != 0 && !jQuery.validateRut(value)) {messages.push($msg);}";
     }
     
     /**
