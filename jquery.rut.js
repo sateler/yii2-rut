@@ -75,7 +75,7 @@
 			mul = ( mul + 1 ) % 8 || 2;
 		}
 		switch(suma % 11) {
-			case 1	: return 'k';
+			case 1	: return 'K';
 			case 0	: return 0;
 			default	: return 11 - (suma % 11);
 		}

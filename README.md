@@ -35,3 +35,7 @@ To format input data in textInputs, in your app assets, add:
 And activate the text input using:
 
     $form->field($model, "rut")->textInput(['data-rut' => 'true'])
+
+# Upgrade from 1.x to 2.x:
+
+Just replace references to `RutValidator::trimValue($value)` to the new function `Rut::normalize($value)`

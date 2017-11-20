@@ -21,17 +21,6 @@ class RutValidator extends Validator
      * @var boolean 
      */
     public $allowZero = true;
-    
-    /** Removes any rut extra characters, and lowercases the result
-     * 
-     * @param string $value
-     * @return string
-     */
-    public static function trimValue($value) {
-        // Trim all non-number or k
-        $trimmed = preg_replace('/[^0-9kK]/i', '', $value);
-        return strtolower($trimmed);
-    }
 
     function init() {
         parent::init();
@@ -64,22 +53,21 @@ class RutValidator extends Validator
         }
         
         // Store back as plain
-        $object->$attribute = self::trimValue($object->$attribute);
+        $object->$attribute = Rut::normalize($object->$attribute);
     }
 
-    public function isValid($value)
+    public function isValid($val)
     {
-        $value = self::trimValue($value);
+        $value = Rut::normalize($val);
 
         if (!$value) {
             // may be empty
             return true;
         }
         $ok = false;
-        $rev = strrev($value);
-
-        $verifyCode = $rev[0];
-        $evaluate = substr($rev, 1);
+        $number = Rut::extractNumber($value);
+        $verifyCode = Rut::extractDV($value);
+        $evaluate = strrev($number);
         $multiply = 2;
         $store = 0;
         for ($i = 0; $i < strlen($evaluate); $i++) {
@@ -94,7 +82,7 @@ class RutValidator extends Validator
         }
         $result = 11 - ($store % 11);
         if ($result == 10) {
-            $result = 'k';
+            $result = 'K';
         }
         if ($result == 11) {
             $result = 0;
