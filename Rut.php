@@ -42,7 +42,7 @@ class Rut
         $clean = strtoupper(preg_replace('/[^0-9kK]/i', '', $value));
         
         // If empty, return empty
-        if(strlen($value) == 0) {
+        if(strlen($clean) == 0) {
             return "";
         }
 
