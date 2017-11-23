@@ -50,6 +50,8 @@ class RutValidator extends Validator
                 'attribute' => $attribute
             ]);
             $this->addError($object, $attribute, $message);
+            
+            return;
         }
         
         // Store back as plain

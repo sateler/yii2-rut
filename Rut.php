@@ -33,13 +33,25 @@ class Rut
      */
     public static function normalize($value)
     {
+        // If null do nothing
+        if(is_null($value)) {
+            return null;
+        }
+        
         // Clean all non-number or kK
         $clean = strtoupper(preg_replace('/[^0-9kK]/i', '', $value));
+        
+        // If empty, return empty
+        if(strlen($value) == 0) {
+            return "";
+        }
+
         // Trim left 0's
         $trimmed = ltrim($clean, "0");
         if(strlen($trimmed) < 2) {
             $trimmed = str_pad($trimmed, 2, "0", STR_PAD_LEFT);
         }
+        
         return strtoupper($trimmed);
     }
     
