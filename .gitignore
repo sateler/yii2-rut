@@ -14,6 +14,8 @@ Thumbs.db
 
 # composer vendor dir
 /vendor
+# Don't store lock for extensions
+/composer.lock
 
 # composer itself is not needed
 composer.phar
