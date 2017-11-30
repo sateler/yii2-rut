@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sateler/yii2-rut.svg?branch=master)](https://travis-ci.org/sateler/yii2-rut)
+
 # Rut Formatting
 
 Load the behavior in the `config/web.php`:
