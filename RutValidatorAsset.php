@@ -8,7 +8,7 @@ use yii\web\AssetBundle;
  */
 class RutValidatorAsset extends AssetBundle
 {
-    public $sourcePath = __DIR__;
+    public $sourcePath = __DIR__ . '/assets';
     
     public $js = [
         'jquery.rut.js',
