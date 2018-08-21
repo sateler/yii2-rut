@@ -17,12 +17,18 @@ class Rut
     public static function extractDV($rut)
     {
         $trimmed = self::normalize($rut);
+        if (is_null($trimmed)) {
+            return null;
+        }
         return strtoupper(substr($trimmed, -1));
     }
 
     public static function extractNumber($rut)
     {
         $trimmed = self::normalize($rut);
+        if (is_null($trimmed)) {
+            return null;
+        }
         return substr($trimmed, 0, -1);
     }
 
