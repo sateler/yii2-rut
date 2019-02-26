@@ -61,7 +61,7 @@ class Rut
         return strtoupper($trimmed);
     }
     
-    public static function format($val)
+    public static function format($val, $decimal_digit_separator = self::DIGIT_SEPARATOR)
     {
         if(is_null($val) || $val === '') {
             return null;
@@ -72,6 +72,6 @@ class Rut
         $number = self::extractNumber($normalized_rut);
         $verifier = self::extractDV($normalized_rut);
 
-        return number_format($number, 0, ',', self::DIGIT_SEPARATOR) . '-' . strtoupper($verifier);
+        return number_format($number, 0, ',', $decimal_digit_separator) . '-' . strtoupper($verifier);
     }
 }

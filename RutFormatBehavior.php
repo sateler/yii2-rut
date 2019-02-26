@@ -9,7 +9,7 @@ namespace sateler\rut;
  */
 class RutFormatBehavior extends \yii\base\Behavior
 {
-    public function asRut($val)
+    public function asRut($val, $decimal_digit_separator = Rut::DIGIT_SEPARATOR)
     {
         if ($val === null) {
             return $this->owner->nullDisplay;
@@ -18,6 +18,6 @@ class RutFormatBehavior extends \yii\base\Behavior
             return $val;
         }
         
-        return Rut::format($val);
+        return Rut::format($val, $decimal_digit_separator);
     }
 }
