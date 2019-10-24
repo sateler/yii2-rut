@@ -74,4 +74,17 @@ class Rut
 
         return number_format($number, 0, ',', $decimal_digit_separator) . '-' . strtoupper($verifier);
     }
+
+    /**
+     * Dash Format
+     * 12345678-K
+     *
+     * @param string $rut
+     * @return void
+     */
+    public static function dashFormat(string $rut)
+    {
+        return sprintf("%s-%s", self::extractNumber($rut), self::extractDV($rut));
+    }
+
 }
